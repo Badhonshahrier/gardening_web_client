@@ -34,7 +34,8 @@ const ShareGardenTip = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto max-w-3xl p-6 bg-green-50 rounded-xl shadow mt-8">
+    <div className="bg-green-50">
+        <div className="w-11/12 mx-auto max-w-3xl  bg-base-300 p-6 rounded-xl shadow">
       <h2 className="text-3xl font-bold text-green-800 mb-6 text-center">
         {" "}
         Share a Garden Tip
@@ -170,6 +171,7 @@ const ShareGardenTip = () => {
           Share Tip
         </button>
       </form>
+    </div>
     </div>
   );
 };

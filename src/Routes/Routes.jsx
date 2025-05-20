@@ -6,11 +6,14 @@ import Register from "../Pages/Register";
 import ExploreGardeners from "../Pages/ExploreGardeners ";
 import ShareGardenTip from "../Components/ShareGardenTip";
 import TipTableRow from "../Components/TipTableRow";
+import TipDetails from "../Components/TipDetails";
+import ErrorPage from "../Components/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -35,9 +38,14 @@ export const router = createBrowserRouter([
         Component: ShareGardenTip,
       },
       {
-        path:'/browsetippage',
-        loader:()=>fetch('http://localhost:3000/sharetips'),
-        Component:TipTableRow
+        path: "/browsetippage",
+        loader: () => fetch("http://localhost:3000/sharetips"),
+        Component: TipTableRow,
+      },
+      {
+        path: "/details/:id",
+        loader: () => fetch("http://localhost:3000/sharetips"),
+        Component: TipDetails,
       },
     ],
   },

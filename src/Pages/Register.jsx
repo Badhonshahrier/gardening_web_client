@@ -48,11 +48,11 @@ const Register = () => {
   };
 
   return (
-    <div className="card bg-white w-full max-w-sm mx-auto py-8 px-6 mt-20 shadow-2xl rounded-2xl">
+    <div className="card bg-green-50 w-full max-w-sm mx-auto py-8 px-6 mt-20 shadow-xl rounded-2xl">
       <h1 className="text-center text-4xl font-extrabold italic text-gray-800 ">
         Register Now!
       </h1>
-      <div className="card-body space-y-4">
+      <div className="card-body bg-green-50 space-y-4">
         <form onSubmit={handleRegister} className="space-y-4">
           <div>
             <label className="block text-lg font-semibold mb-1 text-gray-700">

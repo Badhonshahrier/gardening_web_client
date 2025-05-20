@@ -53,11 +53,11 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             <li>
               <NavLink
-        
+                to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-blue-600 underline font-semibold"
-                    : "font-semibold text-black"
+                    ? "text-blue-600 underline font-bold"
+                    : "text-black font-medium"
                 }
               >
                 Home
@@ -65,11 +65,11 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-    
+                to="/explore"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-blue-600 underline font-semibold"
-                    : "underline text-blue-500"
+                    ? "text-blue-600 underline font-bold"
+                    : "text-black font-medium"
                 }
               >
                 Explore Gardeners
@@ -77,36 +77,36 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                  to="/browsetippage"
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-blue-600 underline font-semibold"
-                    : "underline text-blue-500"
-                }
-              >
-                Browse Tips 
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
                 to="/sharegardentip"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-blue-600 underline font-semibold"
-                    : "underline text-blue-500"
+                    ? "text-blue-600 underline font-bold"
+                    : "text-black font-medium"
                 }
               >
                 Share a Garden Tip
               </NavLink>
             </li>
-            
             <li>
               <NavLink
- 
+                to="/browsetippage"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-blue-600 underline font-semibold"
-                    : "underline text-blue-500"
+                    ? "text-blue-600 underline font-bold"
+                    : "text-black font-medium"
+                }
+              >
+                Browse Tips
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to="/mytips"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-600 underline font-bold"
+                    : "text-black font-medium"
                 }
               >
                 My Tips
