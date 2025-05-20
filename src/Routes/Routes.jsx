@@ -4,6 +4,8 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ExploreGardeners from "../Pages/ExploreGardeners ";
+import ShareGardenTip from "../Components/ShareGardenTip";
+import TipTableRow from "../Components/TipTableRow";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +15,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         path: "/",
+        loader: () => fetch("/slider.json"),
         Component: Home,
       },
       {
@@ -26,6 +29,15 @@ export const router = createBrowserRouter([
       {
         path: "/explore-gardeners",
         Component: ExploreGardeners,
+      },
+      {
+        path: "/sharegardentip",
+        Component: ShareGardenTip,
+      },
+      {
+        path:'/browsetippage',
+        loader:()=>fetch('http://localhost:3000/sharetips'),
+        Component:TipTableRow
       },
     ],
   },
