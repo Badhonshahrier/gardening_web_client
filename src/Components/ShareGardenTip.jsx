@@ -1,7 +1,10 @@
-import React from "react";
+import React, { use } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const ShareGardenTip = () => {
+
+  const {user}=use(AuthContext)
   const handleShareTips = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -28,6 +31,7 @@ const ShareGardenTip = () => {
             timer: 1000,
         
           });
+          form.reset()
         }
       });
    
@@ -145,8 +149,8 @@ const ShareGardenTip = () => {
               type="text"
               required
               name="name"
-              //   value={user.name}
-              //   readOnly
+                value={user.displayName}
+                readOnly
               className="w-full border p-3 rounded bg-gray-100 text-gray-600"
             />
           </div>
@@ -156,8 +160,8 @@ const ShareGardenTip = () => {
               type="email"
               required
               name="email"
-              //   value={user.email}
-              //   readOnly
+                value={user.email}
+                readOnly
               className="w-full border p-3 rounded bg-gray-100 text-gray-600"
             />
           </div>

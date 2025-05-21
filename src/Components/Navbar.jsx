@@ -65,7 +65,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/explore"
+                to="/explore-gardeners"
                 className={({ isActive }) =>
                   isActive
                     ? "text-blue-600 underline font-bold"
@@ -115,11 +115,36 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login">
-            <button className="btn btn-active bg-green-500 rounded-4xl py-3 px-10 text-lg font-bold text-black">
-              Login
-            </button>
-          </Link>
+         {user ? (
+            <div className="flex items-center space-x-3">
+             <button>
+               <div
+                className="tooltip tooltip-bottom menu menu-sm dropdown-content"
+                
+                data-tip={user.displayName ? user.displayName : user.email}
+              >
+              
+                <img
+                  src={user ? user.photoURL : ""}
+                  alt="profile"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+              </div>
+             </button>
+              <button
+               
+                className="btn p-0 px-7 rounded-2xl text-xl font-bold bg-amber-400 hover:bg-green-500"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="btn p-0 px-7 rounded-2xl text-xl font-bold bg-amber-400 hover:bg-green-500">
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

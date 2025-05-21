@@ -8,6 +8,8 @@ import ShareGardenTip from "../Components/ShareGardenTip";
 import TipTableRow from "../Components/TipTableRow";
 import TipDetails from "../Components/TipDetails";
 import ErrorPage from "../Components/ErrorPage";
+import MyTips from "../Pages/MyTips";
+import UpdateTips from "../Pages/UpdateTips";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +49,15 @@ export const router = createBrowserRouter([
         loader: () => fetch("http://localhost:3000/sharetips"),
         Component: TipDetails,
       },
+      {
+        path: "/mytips",
+        loader:()=>fetch("http://localhost:3000/sharetips"),
+        Component: MyTips,
+      },{
+        path:'/updatetips/:id',
+        loader:({params})=>fetch(`http://localhost:3000/sharetips/${params.id}`),
+        Component:UpdateTips
+      }
     ],
   },
 ]);
