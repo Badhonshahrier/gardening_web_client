@@ -1,22 +1,23 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { logInUser, goggleAuth } = use(AuthContext);
-
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log({ email, password });
+    ({ email, password });
     logInUser(email, password)
       .then((result) => {
-        console.log(result);
+        result;
       })
       .catch((error) => {
-        console.log(error);
+        error;
       });
   };
 
@@ -24,6 +25,14 @@ const Login = () => {
     goggleAuth()
       .then((result) => {
         console.log(result);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully Google Login",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -90,8 +99,6 @@ const Login = () => {
               Google
             </button>
           </div>
-
-          
         </form>
       </div>
     </div>

@@ -20,7 +20,7 @@ const UpdateTips = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updatedTips = Object.fromEntries(formData.entries());
-    console.log(updatedTips);
+    (updatedTips);
 
     // updated share tips to the db
     fetch(`http://localhost:3000/updatetips/${_id}`, {

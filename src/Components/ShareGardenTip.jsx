@@ -10,7 +10,7 @@ const ShareGardenTip = () => {
     const form = e.target;
     const formData = new FormData(form);
     const shareTips = Object.fromEntries(formData.entries());
-    console.log(shareTips);
+    (shareTips);
     // send tips data to the db
     fetch("http://localhost:3000/sharetips", {
       method: "POST",
@@ -21,7 +21,7 @@ const ShareGardenTip = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        (data);
         if (data.insertedId) {
           Swal.fire({
             position: "center",

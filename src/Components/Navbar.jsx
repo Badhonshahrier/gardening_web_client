@@ -75,18 +75,33 @@ const Navbar = () => {
                 Explore Gardeners
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/sharegardentip"
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-blue-600 underline font-bold"
-                    : "text-black font-medium"
-                }
-              >
-                Share a Garden Tip
-              </NavLink>
-            </li>
+            {user ? (
+              <li>
+                <NavLink
+                  to="/sharegardentip"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-600 underline font-bold"
+                      : "text-black font-medium"
+                  }
+                >
+                  Share a Garden Tip
+                </NavLink>
+              </li>
+            ) : (
+              <li>
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    isActive && user
+                      ? "text-blue-600 underline font-bold"
+                      : "text-black font-medium"
+                  }
+                >
+                  Share a Garden Tip
+                </NavLink>
+              </li>
+            )}
             <li>
               <NavLink
                 to="/browsetippage"
@@ -100,41 +115,51 @@ const Navbar = () => {
               </NavLink>
             </li>
 
-            <li>
-              <NavLink
-                to="/mytips"
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-blue-600 underline font-bold"
-                    : "text-black font-medium"
-                }
-              >
-                My Tips
-              </NavLink>
-            </li>
+            {user ? (
+              <li>
+                <NavLink
+                  to="/mytips"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-blue-600 underline font-bold"
+                      : "text-black font-medium"
+                  }
+                >
+                  My Tips
+                </NavLink>
+              </li>
+            ) : (
+              <li>
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    isActive  && user
+                      ? "text-blue-600 underline font-bold"
+                      : "text-black font-medium"
+                  }
+                >
+                  My Tips
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
         <div className="navbar-end">
-         {user ? (
+          {user ? (
             <div className="flex items-center space-x-3">
-             <button>
-               <div
-                className="tooltip tooltip-bottom menu menu-sm dropdown-content"
-                
-                data-tip={user.displayName ? user.displayName : user.email}
-              >
-              
-                <img
-                  src={user ? user.photoURL : ""}
-                  alt="profile"
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-              </div>
-             </button>
-              <button
-               
-                className="btn p-0 px-7 rounded-2xl text-xl font-bold bg-amber-400 hover:bg-green-500"
-              >
+              <button>
+                <div
+                  className="tooltip tooltip-bottom menu menu-sm dropdown-content"
+                  data-tip={user.displayName ? user.displayName : user.email}
+                >
+                  <img
+                    src={user ? user.photoURL : ""}
+                    alt="profile"
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                </div>
+              </button>
+              <button className="btn p-0 px-7 rounded-2xl text-xl font-bold bg-amber-400 hover:bg-green-500">
                 Logout
               </button>
             </div>

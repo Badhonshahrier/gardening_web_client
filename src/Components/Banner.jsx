@@ -9,7 +9,7 @@ const Banner = ({ singleData }) => {
  
 
   return (
-    <div className="w-11/12 mx-auto p-4 bg-green-50">
+    <div className="w-11/12 mx-auto p-4 mt-10 bg-green-50">
       <Swiper
 
            modules={[Navigation, Pagination]}

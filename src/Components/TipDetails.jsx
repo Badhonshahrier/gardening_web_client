@@ -4,7 +4,7 @@ import TipCard from "./TipCard";
 
 const TipDetails = () => {
   const detailsData = useLoaderData();
-  console.log(detailsData);
+  (detailsData);
 
   return (
     <div>

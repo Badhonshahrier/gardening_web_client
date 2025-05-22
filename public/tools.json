@@ -1,0 +1,50 @@
+[
+  {
+    "tool_name": "Hand Trowel",
+    "image": "https://i.ibb.co/Y7hwBkjF/garden-trowel.jpg",
+    "description": "Essential for precise digging, transplanting, and planting new greens in your garden.",
+    "category": "Digging"
+  },
+  {
+    "tool_name": "Pruning Shears",
+    "image": "https://i.ibb.co/Z1G87j5F/margarita-shtyfura-B0-CDm-YV7ge-Q-unsplash.jpg",
+    "description": "Perfect for shaping shrubs and trimming dead stems to keep plants thriving.",
+    "category": "Cutting"
+  },
+  {
+    "tool_name": "Garden Hose Nozzle",
+    "image": "https://i.ibb.co/rf60LSLS/susan-elizabeth-jones-6o0u-X4-RKw3-Y-unsplash.jpg",
+    "description": "Multi-setting nozzle for everything from misting seedlings to powerful cleanups.",
+    "category": "Watering"
+  },
+  {
+    "tool_name": "Leaf Rake",
+    "image": "https://i.ibb.co/qYt40dtx/pile-dry-autumn-leaves-grass-lawn-with-plastic-leaf-rake-sunny-day-close-up-leaf-rake.jpg",
+    "description": "Sweep away autumn leaves and garden debris, keeping your garden spotless.",
+    "category": "Cleaning"
+  },
+  {
+    "tool_name": "Soil Scoop",
+    "image": "https://i.ibb.co/YqFJXLp/zachary-keimig-0zk-Z-4-Gustk-unsplash.jpg",
+    "description": "Handy for scooping soil, compost, and mulch with minimal spillage.",
+    "category": "Digging"
+  },
+  {
+    "tool_name": "Garden Gloves",
+    "image": "https://i.ibb.co/5WcJBtw8/richard-stachmann-Nk8-Z5-MTrvb-Y-unsplash.jpg",
+    "description": "Durable gloves to protect your hands from thorns, dirt, and rough branches.",
+    "category": "Protection"
+  },
+  {
+    "tool_name": "Garden Broom",
+    "image": "https://i.ibb.co/FLvj45SY/Eco-outdoor-broom-aafef8d-e1663920765497.jpg",
+    "description": "Keep garden paths and patios tidy with this sturdy eco-friendly broom.",
+    "category": "Cleaning"
+  },
+  {
+    "tool_name": "Pressure Sprayer",
+    "image": "https://i.ibb.co/MHXhkLD/farmer-spraying-vegetables-garden-with-herbicides-man-black-apron.jpg",
+    "description": "Apply treatments or clean surfaces with ease using this efficient sprayer.",
+    "category": "Cleaning"
+  }
+]

@@ -10,6 +10,7 @@ import TipDetails from "../Components/TipDetails";
 import ErrorPage from "../Components/ErrorPage";
 import MyTips from "../Pages/MyTips";
 import UpdateTips from "../Pages/UpdateTips";
+import InstrumentSection from "../Components/InstrumentSection";
 
 export const router = createBrowserRouter([
   {
@@ -51,13 +52,17 @@ export const router = createBrowserRouter([
       },
       {
         path: "/mytips",
-        loader:()=>fetch("http://localhost:3000/sharetips"),
+        loader: () => fetch("http://localhost:3000/sharetips"),
         Component: MyTips,
-      },{
-        path:'/updatetips/:id',
-        loader:({params})=>fetch(`http://localhost:3000/sharetips/${params.id}`),
-        Component:UpdateTips
-      }
+      },
+      {
+        path: "/updatetips/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/sharetips/${params.id}`),
+        Component: UpdateTips,
+      },
+      
+      
     ],
   },
 ]);

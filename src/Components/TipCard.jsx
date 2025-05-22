@@ -4,6 +4,7 @@ import { GiTreeBranch } from "react-icons/gi";
 
 const TipCard = ({ detailsData }) => {
   const { id } = useParams();
+  
   const data = detailsData.find((item) => item._id === id);
 
   return (

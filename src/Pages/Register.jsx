@@ -1,11 +1,12 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser, goggleAuth } = use(AuthContext);
+  const navigate=useNavigate()
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -13,10 +14,10 @@ const Register = () => {
     const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log({ name, photo, email, password });
+    ({ name, photo, email, password });
     createUser(email, password)
       .then((result) => {
-        console.log(result);
+        (result);
         Swal.fire({
           position: "center",
           icon: "success",
@@ -24,16 +25,17 @@ const Register = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate("/")
       })
       .catch((error) => {
-        console.log(error);
+        (error);
       });
   };
 
   const handleSingUp = () => {
     goggleAuth()
       .then((result) => {
-        console.log(result);
+        (result);
         Swal.fire({
           position: "center",
           icon: "success",
@@ -41,9 +43,10 @@ const Register = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate("/")
       })
       .catch((error) => {
-        console.log(error);
+        (error);
       });
   };
 
