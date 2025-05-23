@@ -12,7 +12,7 @@ const ShareGardenTip = () => {
     const shareTips = Object.fromEntries(formData.entries());
     (shareTips);
     // send tips data to the db
-    fetch("http://localhost:3000/sharetips", {
+    fetch("https://gardening-assignment-server.vercel.app/sharetips", {
       method: "POST",
       headers: {
         "content-type": "application/json",

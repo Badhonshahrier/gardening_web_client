@@ -24,7 +24,7 @@ const MyTips = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // stat deleting
-        fetch(`http://localhost:3000/sharetips/${id}`, {
+        fetch(`https://gardening-assignment-server.vercel.app/sharetips/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -46,7 +46,7 @@ const MyTips = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:3000/my-tips/${user.email}`)
+    fetch(`https://gardening-assignment-server.vercel.app/my-tips/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyTips(data);

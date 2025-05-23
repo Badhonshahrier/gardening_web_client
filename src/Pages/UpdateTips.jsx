@@ -23,7 +23,7 @@ const UpdateTips = () => {
     (updatedTips);
 
     // updated share tips to the db
-    fetch(`http://localhost:3000/updatetips/${_id}`, {
+    fetch(`https://gardening-assignment-server.vercel.app/updatetips/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

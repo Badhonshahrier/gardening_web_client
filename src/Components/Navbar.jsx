@@ -1,27 +1,28 @@
-import React, { use } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, NavLink } from "react-router";
 import { GiTreeBranch } from "react-icons/gi";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user, userLogOut } = use(AuthContext);
+  const { user, userLogOut } = useContext(AuthContext);
+
   const handleLogout = () => {
     userLogOut()
       .then((result) => {
-        console.log(result);
         Swal.fire({
-  position: "center",
-  icon: "success",
-  title: "Successfully Logout",
-  showConfirmButton: false,
-  timer: 1000
-});
+          position: "center",
+          icon: "success",
+          title: "Successfully Logout",
+          showConfirmButton: false,
+          timer: 1000,
+        });
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
+
   return (
     <div className="bg-gradient-to-r from-lime-100 via-green-100 to-green-200">
       <div className="navbar w-11/12 mx-auto">
@@ -35,30 +36,29 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />
               </svg>
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  mt-3 w-52 p-2"
+              className="menu menu-sm dropdown-content mt-3 w-52 p-2"
             >
               <li>
-                <NavLink>Home</NavLink>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink>Share a Garden Tip</NavLink>
+                <NavLink to="/sharegardentip">Share a Garden Tip</NavLink>
               </li>
               <li>
-                <NavLink>Explore Gardeners</NavLink>
+                <NavLink to="/explore-gardeners">Explore Gardeners</NavLink>
               </li>
               <li>
-                <NavLink>My Tips</NavLink>
+                <NavLink to="/mytips">My Tips</NavLink>
               </li>
             </ul>
           </div>
@@ -66,6 +66,7 @@ const Navbar = () => {
             <GiTreeBranch color="green" size={42} />
           </a>
         </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
@@ -161,6 +162,7 @@ const Navbar = () => {
             )}
           </ul>
         </div>
+
         <div className="navbar-end">
           {user ? (
             <div className="dropdown dropdown-end">
@@ -168,7 +170,7 @@ const Navbar = () => {
                 tabIndex={0}
                 role="button"
                 className="btn btn-circle avatar tooltip tooltip-bottom"
-                data-tip={user.displayName ? user.displayName : user.email}
+                data-tip={user.displayName || user.email}
               >
                 <div className="w-10 rounded-full">
                   <img
@@ -179,10 +181,42 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <ul
-           
-                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-36"
-              >
+              {/* <label className="flex cursor-pointer gap-2 items-center ml-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+                </svg>
+                <input
+                  type="checkbox"
+                  className="toggle theme-controller"
+                  aria-label="Toggle dark mode"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </label> */}
+
+              <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-36">
                 <li>
                   <button
                     onClick={handleLogout}

@@ -61,7 +61,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/browsetippage",
-        loader: () => fetch("http://localhost:3000/sharetips"),
+        loader: () => fetch("https://gardening-assignment-server.vercel.app/sharetips"),
         hydrateFallbackElement: (
           <div className="text-center">
             <span className="loading loading-spinner text-success"></span>
@@ -73,7 +73,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        loader: () => fetch("http://localhost:3000/sharetips"),
+        loader: () => fetch("https://gardening-assignment-server.vercel.app/sharetips"),
         hydrateFallbackElement: (
           <div className="text-center">
             <span className="loading loading-spinner text-success"></span>
@@ -89,7 +89,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/mytips",
-        loader: () => fetch("http://localhost:3000/sharetips"),
+        loader: () => fetch("https://gardening-assignment-server.vercel.app/sharetips"),
         hydrateFallbackElement: (
           <div className="text-center">
             <span className="loading loading-spinner text-success"></span>
@@ -106,7 +106,7 @@ export const router = createBrowserRouter([
       {
         path: "/updatetips/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/sharetips/${params.id}`),
+          fetch(`https://gardening-assignment-server.vercel.app/sharetips/${params.id}`),
         hydrateFallbackElement: (
           <div className="text-center">
             <span className="loading loading-spinner text-success"></span>

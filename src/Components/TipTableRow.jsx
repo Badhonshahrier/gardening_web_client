@@ -27,21 +27,33 @@ const TipTableRow = () => {
         </thead>
         <tbody>
           {publicData.length <= 0 ? (
-            <tr><td  colSpan={6} className="text-red-600 font-bold text-xl bg-base-200 h-40 text-center">
-              no data found</td></tr>
+            <tr>
+              <td
+                colSpan={6}
+                className="text-red-600 font-bold text-xl bg-base-200 h-40 text-center"
+              >
+                no data found
+              </td>
+            </tr>
           ) : (
             publicData.map((item) => (
               <tr key={item._id} className="border">
                 <td className="p-3 font-bold">{item.title}</td>
                 <td className="p-3 font-medium ">{item.category}</td>
+
                 <td className="p-3">{item.name}</td>
                 <td className="p-3">{item.email}</td>
+
+              
+
                 <td className="p-3">
                   <img
                     src={item.photo}
                     className="w-15 h-15 object-cover rounded-full"
                   />
                 </td>
+                
+              
                 <td className="p-3">
                   <Link to={user ? `/details/${item._id}` : "/login"}>
                     <button className="flex items-center gap-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition">
@@ -50,6 +62,7 @@ const TipTableRow = () => {
                   </Link>
                 </td>
               </tr>
+              
             ))
           )}
         </tbody>

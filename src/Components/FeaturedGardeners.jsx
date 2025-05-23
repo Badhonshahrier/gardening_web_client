@@ -11,7 +11,7 @@ import {
 const FeaturedGardeners = () => {
   const [activeGardeners, setActiveGardeners] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/gardeners/active")
+    fetch("https://gardening-assignment-server.vercel.app/gardeners/active")
       .then((res) => res.json())
       .then((data) => setActiveGardeners(data));
   }, []);
