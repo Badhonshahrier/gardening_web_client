@@ -11,6 +11,7 @@ import ErrorPage from "../Components/ErrorPage";
 import MyTips from "../Pages/MyTips";
 import UpdateTips from "../Pages/UpdateTips";
 import InstrumentSection from "../Components/InstrumentSection";
+import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,13 @@ export const router = createBrowserRouter([
         index: true,
         path: "/",
         loader: () => fetch("/slider.json"),
+        hydrateFallbackElement: (
+          <div className="text-center">
+            <span className="loading loading-spinner text-success"></span>
+            <span className="loading loading-spinner text-warning"></span>
+            <span className="loading loading-spinner text-error"></span>
+          </div>
+        ),
         Component: Home,
       },
       {
@@ -34,35 +42,84 @@ export const router = createBrowserRouter([
       },
       {
         path: "/explore-gardeners",
+        hydrateFallbackElement: (
+          <div className="text-center">
+            <span className="loading loading-spinner text-success"></span>
+            <span className="loading loading-spinner text-warning"></span>
+            <span className="loading loading-spinner text-error"></span>
+          </div>
+        ),
         Component: ExploreGardeners,
       },
       {
         path: "/sharegardentip",
-        Component: ShareGardenTip,
+        element: (
+          <PrivateRoutes>
+            <ShareGardenTip></ShareGardenTip>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/browsetippage",
         loader: () => fetch("http://localhost:3000/sharetips"),
+        hydrateFallbackElement: (
+          <div className="text-center">
+            <span className="loading loading-spinner text-success"></span>
+            <span className="loading loading-spinner text-warning"></span>
+            <span className="loading loading-spinner text-error"></span>
+          </div>
+        ),
         Component: TipTableRow,
       },
       {
         path: "/details/:id",
         loader: () => fetch("http://localhost:3000/sharetips"),
-        Component: TipDetails,
+        hydrateFallbackElement: (
+          <div className="text-center">
+            <span className="loading loading-spinner text-success"></span>
+            <span className="loading loading-spinner text-warning"></span>
+            <span className="loading loading-spinner text-error"></span>
+          </div>
+        ),
+        element: (
+          <PrivateRoutes>
+            <TipDetails></TipDetails>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/mytips",
         loader: () => fetch("http://localhost:3000/sharetips"),
-        Component: MyTips,
+        hydrateFallbackElement: (
+          <div className="text-center">
+            <span className="loading loading-spinner text-success"></span>
+            <span className="loading loading-spinner text-warning"></span>
+            <span className="loading loading-spinner text-error"></span>
+          </div>
+        ),
+        element: (
+          <PrivateRoutes>
+            <MyTips></MyTips>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/updatetips/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/sharetips/${params.id}`),
-        Component: UpdateTips,
+        hydrateFallbackElement: (
+          <div className="text-center">
+            <span className="loading loading-spinner text-success"></span>
+            <span className="loading loading-spinner text-warning"></span>
+            <span className="loading loading-spinner text-error"></span>
+          </div>
+        ),
+        element: (
+          <PrivateRoutes>
+            <UpdateTips></UpdateTips>
+          </PrivateRoutes>
+        ),
       },
-      
-      
     ],
   },
 ]);

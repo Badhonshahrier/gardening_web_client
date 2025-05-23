@@ -12,11 +12,12 @@ const InstrumentSection = () => {
   }, []);
 
   return (
-    <div className=" mx-auto p-6">
-      <h2 className="text-3xl font-bold text-center mb-8">Gardening Tools</h2>
-      <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="mt-20 bg-green-50 p-6 ">
+      <h2 className="text-3xl font-bold text-center mb-8 text-green-700">Gardening Tools</h2>
+      <p className="text-gray-600 font-bold text-md text-center lg:w-3/4 ml-4 lg:ml-40 ">"Gardening tools are essential for every gardener. From digging and planting to pruning and watering, the right tools make gardening easier and more enjoyable. Durable, ergonomic, and well-maintained tools help create healthy, thriving gardens."</p>
+      <div className="w-11/12 mx-auto grid grid-cols-1 mt-15 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {tools.map((tool, index) => (
-          <div key={index} className="card shadow-lg">
+          <div key={index} className="card bg-base-300 shadow-lg">
             <figure className="px-8 pt-8">
               <img src={tool.image} alt={tool.tool_name} className="rounded-xl w-96 h-96 object-cover" />
             </figure>

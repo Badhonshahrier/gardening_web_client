@@ -2,7 +2,10 @@ import React from "react";
 
 const Faq = () => {
   return (
-    <div className="flex flex-col w-11/12 mx-auto md:flex-row gap-4 p-4 mt-20">
+   <div className="">
+    <h1 className="text-center text-green-800 font-bold text-3xl py-20 ">Community Gardening FAQs</h1>
+    <p className="text-center text-gray-600 font-bold md:w-3/4 lg:ml-60 pb-10 ">Welcome to our Gardening Community & Resource Hub! Find answers to common gardening questions, expert tips, and connect with fellow gardeners. Whether you’re a beginner or expert, explore practical advice, tools, and resources to help your garden thrive. Join us and grow your passion today!</p>
+     <div className="flex flex-col w-11/12 mx-auto md:flex-row gap-4 p-4">
       <div className="md:w-1/1">
         <img
           src="https://i.ibb.co/XrdhCzmB/6752416.jpg"
@@ -11,6 +14,7 @@ const Faq = () => {
         />
       </div>
       <div className="md:w-3/4   space-y-4">
+      
      
         <div className="collapse bg-green-50 collapse-arrow  border border-base-300">
           <input type="radio" name="faq-accordion" defaultChecked />
@@ -84,6 +88,7 @@ const Faq = () => {
         </div>
       </div>
     </div>
+   </div>
   );
 };
 

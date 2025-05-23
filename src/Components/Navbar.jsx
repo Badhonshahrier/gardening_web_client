@@ -2,9 +2,26 @@ import React, { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, NavLink } from "react-router";
 import { GiTreeBranch } from "react-icons/gi";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user } = use(AuthContext);
+  const { user, userLogOut } = use(AuthContext);
+  const handleLogout = () => {
+    userLogOut()
+      .then((result) => {
+        console.log(result);
+        Swal.fire({
+  position: "center",
+  icon: "success",
+  title: "Successfully Logout",
+  showConfirmButton: false,
+  timer: 1000
+});
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="bg-gradient-to-r from-lime-100 via-green-100 to-green-200">
       <div className="navbar w-11/12 mx-auto">
@@ -133,7 +150,7 @@ const Navbar = () => {
                 <NavLink
                   to="/login"
                   className={({ isActive }) =>
-                    isActive  && user
+                    isActive && user
                       ? "text-blue-600 underline font-bold"
                       : "text-black font-medium"
                   }
@@ -146,22 +163,35 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <div className="flex items-center space-x-3">
-              <button>
-                <div
-                  className="tooltip tooltip-bottom menu menu-sm dropdown-content"
-                  data-tip={user.displayName ? user.displayName : user.email}
-                >
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-circle avatar tooltip tooltip-bottom"
+                data-tip={user.displayName ? user.displayName : user.email}
+              >
+                <div className="w-10 rounded-full">
                   <img
-                    src={user ? user.photoURL : ""}
+                    src={user.photoURL}
                     alt="profile"
-                    className="w-10 h-10 rounded-full object-cover"
+                    className="object-cover"
                   />
                 </div>
-              </button>
-              <button className="btn p-0 px-7 rounded-2xl text-xl font-bold bg-amber-400 hover:bg-green-500">
-                Logout
-              </button>
+              </div>
+
+              <ul
+           
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-36"
+              >
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="text-red-500 font-bold text-lg hover:bg-red-100"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </ul>
             </div>
           ) : (
             <Link to="/login">

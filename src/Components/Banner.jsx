@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const Banner = ({ singleData }) => {
+const  Banner = ({ singleData }) => {
  
 
   return (

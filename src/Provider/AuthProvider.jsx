@@ -3,6 +3,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
@@ -12,7 +13,8 @@ import { GoogleAuthProvider } from "firebase/auth";
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('');
+  console.log(user)
   // register
 
   const createUser = (email, password) => {
@@ -22,6 +24,11 @@ const AuthProvider = ({ children }) => {
   // login
   const logInUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // logout
+  const userLogOut = () => {
+    return signOut(auth);
   };
 
   // goggle
@@ -54,6 +61,7 @@ const AuthProvider = ({ children }) => {
     logInUser,
     goggleAuth,
     userProfile,
+    userLogOut,
   };
   return <AuthContext value={authData}>{children}</AuthContext>;
 };

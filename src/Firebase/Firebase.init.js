@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCgWv_lwouk8hyuXKtBk2weM1twiXr9CXs",
-    authDomain: "gardening-authentication-a8520.firebaseapp.com",
-    projectId: "gardening-authentication-a8520",
-    storageBucket: "gardening-authentication-a8520.firebasestorage.app",
-    messagingSenderId: "758030464488",
-    appId: "1:758030464488:web:1e03141348584b351da05d"
+    apiKey:import.meta.env.VITE_apiKey,
+    authDomain:import.meta.env.VITE_authDomain,
+    projectId:import.meta.env.VITE_projectId,
+    storageBucket:import.meta.env.VITE_storageBucket,
+    messagingSenderId:import.meta.env.VITE_messagingSenderId,
+    appId:import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

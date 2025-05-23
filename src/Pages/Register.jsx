@@ -8,29 +8,82 @@ const Register = () => {
   const { createUser, goggleAuth } = use(AuthContext);
   const navigate=useNavigate()
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const photo = e.target.photo.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    ({ name, photo, email, password });
-    createUser(email, password)
-      .then((result) => {
-        (result);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Successfully SignUp",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate("/")
-      })
-      .catch((error) => {
-        (error);
+const handleRegister = (e) => {
+  e.preventDefault();
+
+  const name = e.target.name.value;
+  const photo = e.target.photo.value;
+  const email = e.target.email.value;
+  const password = e.target.password.value;
+
+  // Individual password checks with return to stop if failed
+  if (password.length < 8) {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "• At least 8 characters long",
+      showConfirmButton: false,
+      timer: 1000,
+    });
+    return;
+  }
+
+  if (!/[A-Z]/.test(password)) {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "• At least 1 uppercase letter",
+      showConfirmButton: false,
+      timer: 1000,
+    });
+    return;
+  }
+
+  if (!/[a-z]/.test(password)) {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "• At least 1 lowercase letter",
+      showConfirmButton: false,
+      timer: 1000,
+    });
+    return;
+  }
+
+  if (!/\W/.test(password)) {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "• At least 1 special character (like !@#$%)",
+      showConfirmButton: false,
+      timer: 1000,
+    });
+    return;
+  }
+
+  // If all checks pass, create user
+  createUser(email, password)
+    .then((result) => {
+      console.log(result)
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Successfully Signed Up",
+        showConfirmButton: false,
+        timer: 1500,
       });
-  };
+      navigate("/");
+    })
+    .catch((error) => {
+      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Signup Failed",
+      
+      });
+    });
+};
+
 
   const handleSingUp = () => {
     goggleAuth()

@@ -18,18 +18,20 @@ const ExploreGardeners = () => {
         setGardeners(data);
       });
   }, []);
+  console.log(gardeners)
 
   return (
-    <div className="p-6 bg-green-50 min-h-screen">
+    <div className="bg-green-50">
+      <div className="p-6  w-11/12 mx-auto">
       <h1 className="text-3xl font-bold mb-8 text-green-700 text-center">
-        🌿 Explore Gardeners 🌿
+        Explore Gardeners 
       </h1>
 
       <div className="grid md:grid-cols-3 gap-6">
         {gardeners.map((gardener) => (
           <div
             key={gardener.id}
-            className="bg-white rounded-2xl shadow-lg o hover:shadow-2xl "
+            className="bg-white rounded-2xl shadow-lg "
           >
             <img
               src={gardener.image}
@@ -78,6 +80,7 @@ const ExploreGardeners = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
