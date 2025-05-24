@@ -2,27 +2,26 @@ import React from "react";
 import { useParams } from "react-router";
 import { GiTreeBranch } from "react-icons/gi";
 import { BiSolidLike } from "react-icons/bi";
+
 const TipCard = ({ detailsData }) => {
   const { id } = useParams();
-  
   const data = detailsData.find((item) => item._id === id);
 
   return (
-    <div className="p-6 bg-green-50 ">
-    <div className="flex justify-center">
+    <div className="my-10 px-4 sm:px-6 lg:px-8 ">
+      <div className="flex justify-center items-center mb-8">
         <GiTreeBranch color="green" size={42} />
-          <h1 className="text-4xl pl-5 font-extrabold text-green-800 mb-6 ">
-         Tip Details
-      </h1>
-      
-    </div>
+        <h1 className="text-4xl pl-4 font-extrabold text-green-800">
+          Tip Details
+        </h1>
+      </div>
 
       {data ? (
-        <div className="max-w-2xl mx-auto bg-white border border-green-200 rounded-2xl shadow-lg overflow-hidden">
+        <div className="max-w-3xl mx-auto bg-white border border-green-50 rounded-xl shadow-lg ">
           <img
             src={data.photo}
-            alt={data.title}
-            className="w-full h-full object-cover"
+            alt=""
+            className="w-full h-96 object-cover"
           />
           <div className="p-6">
             <h2 className="text-3xl font-bold text-green-900 mb-3">
@@ -35,35 +34,40 @@ const TipCard = ({ detailsData }) => {
               <span className="font-semibold">Plant:</span> {data.plant}
             </p>
             <p className="text-sm text-green-700 mb-1">
-              <span className="font-semibold">Difficulty:</span> {data.difficulty}
+              <span className="font-semibold">Difficulty:</span>{" "}
+              {data.difficulty}
             </p>
             <p className="text-sm text-green-700 mb-4">
-              <span className="font-semibold">Availability:</span> {data.availability}
+              <span className="font-semibold">Availability:</span>{" "}
+              {data.availability}
             </p>
 
-            <p className="text-gray-800 leading-relaxed mb-4">{data.description}</p>
+            <p className="text-gray-800 leading-relaxed mb-6">
+             <span className="text-green-700" >Description</span> : {data.description}
+            </p>
 
             <div className="border-t pt-4 text-sm text-gray-600 flex items-center justify-between">
               <div>
                 <p className="font-semibold text-lg">Shared by:</p>
-                <p>Name : {data.name}</p>
-                <p>Email : {data.email}</p>
+                <p>Name: {data.name}</p>
+                <p>Email: {data.email}</p>
               </div>
-              <div className="flex items-center cursor-pointer ">
-                <BiSolidLike size={30} color="blue" />
-                <button className="text-xl pl-2 font-bold">Like</button>
-                
+              <div className="flex items-center cursor-pointer">
+                <button className="text-lg pl-2 font-semibold flex btn bg-amber-300 hover:bg-green-800">
+                <BiSolidLike size={28} color="blue" />
+                  Like
+                </button>
               </div>
-             
             </div>
           </div>
         </div>
       ) : (
-        <p className="text-gray-600 text-center">No tip found for this ID.</p>
+        <p className="text-center text-gray-600 mt-10">
+          No tip found for this ID.
+        </p>
       )}
     </div>
   );
 };
 
 export default TipCard;
-

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, NavLink, useNavigate } from "react-router";
 import { GiTreeBranch } from "react-icons/gi";
@@ -6,11 +6,11 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, userLogOut } = useContext(AuthContext);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     userLogOut()
-      .then((result) => {
+      .then(() => {
         Swal.fire({
           position: "center",
           icon: "success",
@@ -18,7 +18,7 @@ const Navbar = () => {
           showConfirmButton: false,
           timer: 1000,
         });
-        navigate('/login')
+        navigate("/login");
       })
       .catch((error) => {
         console.error(error);
@@ -95,33 +95,18 @@ const Navbar = () => {
                 Explore Gardeners
               </NavLink>
             </li>
-            {user ? (
-              <li>
-                <NavLink
-                  to="/sharegardentip"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-blue-600 underline font-bold"
-                      : "text-black font-medium"
-                  }
-                >
-                  Share a Garden Tip
-                </NavLink>
-              </li>
-            ) : (
-              <li>
-                <NavLink
-                  to="/sharegardentip"
-                  className={({ isActive }) =>
-                    isActive && user
-                      ? "text-blue-600 underline font-bold"
-                      : "text-black font-medium"
-                  }
-                >
-                  Share a Garden Tip
-                </NavLink>
-              </li>
-            )}
+            <li>
+              <NavLink
+                to="/sharegardentip"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-600 underline font-bold"
+                    : "text-black font-medium"
+                }
+              >
+                Share a Garden Tip
+              </NavLink>
+            </li>
             <li>
               <NavLink
                 to="/browsetippage"
@@ -135,33 +120,18 @@ const Navbar = () => {
               </NavLink>
             </li>
 
-            {user ? (
-              <li>
-                <NavLink
-                  to="/mytips"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-blue-600 underline font-bold"
-                      : "text-black font-medium"
-                  }
-                >
-                  My Tips
-                </NavLink>
-              </li>
-            ) : (
-              <li>
-                <NavLink
-                  to="/login"
-                  className={({ isActive }) =>
-                    isActive && user
-                      ? "text-blue-600 underline font-bold"
-                      : "text-black font-medium"
-                  }
-                >
-                  My Tips
-                </NavLink>
-              </li>
-            )}
+            <li>
+              <NavLink
+                to="/mytips"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-600 underline font-bold"
+                    : "text-black font-medium"
+                }
+              >
+                My Tips
+              </NavLink>
+            </li>
           </ul>
         </div>
 
