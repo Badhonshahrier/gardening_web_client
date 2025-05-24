@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router";
 import { Eye } from "lucide-react";
-// import { Link } from "react-router";
+import { Link } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const TipTableRow = () => {
@@ -71,11 +71,11 @@ const TipTableRow = () => {
                   />
                 </td>
                 <td className="p-3">
-                  {/* <Link to={user ? `/details/${item._id}` : "/login"}> */}
+                  <Link to={user ? `/details/${item._id}` : "/login"}>
                     <button className="flex items-center gap-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition">
                       <Eye size={18} /> See More
                     </button>
-                  {/* </Link> */}
+                  </Link>
                 </td>
               </tr>
             ))

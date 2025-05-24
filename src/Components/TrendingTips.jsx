@@ -15,7 +15,7 @@ const TrendingTips = () => {
   return (
     <div className="bg-green-50 py-20 min-h-[120vh]">
       <div className="w-11/12 mx-auto">
-        {/* Title */}
+  
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-green-800 flex justify-center items-center gap-2">
             <Lightbulb size={32} />
@@ -39,7 +39,7 @@ const TrendingTips = () => {
           </p>
         </div>
 
-        {/* Cards Grid */}
+     
         <Fade cascade damping={0.1} triggerOnce>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {trending.map((trend) => (
