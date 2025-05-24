@@ -10,7 +10,6 @@ import TipDetails from "../Components/TipDetails";
 import ErrorPage from "../Components/ErrorPage";
 import MyTips from "../Pages/MyTips";
 import UpdateTips from "../Pages/UpdateTips";
-import InstrumentSection from "../Components/InstrumentSection";
 import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
@@ -53,7 +52,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/sharegardentip",
-        element: (
+       element: (
           <PrivateRoutes>
             <ShareGardenTip></ShareGardenTip>
           </PrivateRoutes>
@@ -61,8 +60,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/browsetippage",
-        loader: () =>
-          fetch("https://gardening-assignment-server.vercel.app/sharetips"),
+        loader: () => fetch("https://gardening-assignment-server.vercel.app/sharetips"),
         hydrateFallbackElement: (
           <div className="text-center">
             <span className="loading loading-spinner text-success"></span>
@@ -74,8 +72,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        loader: () =>
-          fetch("https://gardening-assignment-server.vercel.app/sharetips"),
+        loader: () => fetch("https://gardening-assignment-server.vercel.app/sharetips"),
         hydrateFallbackElement: (
           <div className="text-center">
             <span className="loading loading-spinner text-success"></span>
@@ -91,8 +88,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/mytips",
-        loader: () =>
-          fetch("https://gardening-assignment-server.vercel.app/sharetips"),
+        loader: () => fetch("https://gardening-assignment-server.vercel.app/sharetips"),
         hydrateFallbackElement: (
           <div className="text-center">
             <span className="loading loading-spinner text-success"></span>
@@ -109,9 +105,7 @@ export const router = createBrowserRouter([
       {
         path: "/updatetips/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://gardening-assignment-server.vercel.app/sharetips/${params.id}`
-          ),
+          fetch(`https://gardening-assignment-server.vercel.app/sharetips/${params.id}`),
         hydrateFallbackElement: (
           <div className="text-center">
             <span className="loading loading-spinner text-success"></span>

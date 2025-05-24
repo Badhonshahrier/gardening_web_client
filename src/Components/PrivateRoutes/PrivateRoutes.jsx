@@ -1,10 +1,10 @@
-import React, { use } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Navigate } from "react-router";
 
 const PrivateRoutes = ({ children }) => {
-  const { user, loading } = use(AuthContext);
-  console.log(loading);
+  const { user, loading } = useContext(AuthContext);
+  console.log(loading,user);
   if (loading) {
     return (
       <div className="h-20 w-full text-center flex justify-center items-center">
@@ -15,11 +15,11 @@ const PrivateRoutes = ({ children }) => {
     );
   }
 
-  if (user) {
-    return children;
+  if (!user) {
+    return <Navigate to="/login"></Navigate>;
   }
 
-  return <Navigate to="/login"></Navigate>;
+  return children;
 };
 
 export default PrivateRoutes;
