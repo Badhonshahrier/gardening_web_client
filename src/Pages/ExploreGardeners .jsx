@@ -12,7 +12,7 @@ const ExploreGardeners = () => {
   const [gardeners, setGardeners] = useState([]);
 
   useEffect(() => {
-    fetch("https://gardening-assignment-server.vercel.app/gardeners")
+    fetch("https://gardening-assignment-server.vercel.app/gardeners/")
       .then((res) => res.json())
       .then((data) => {
         setGardeners(data);
@@ -46,7 +46,7 @@ const ExploreGardeners = () => {
                   {gardener.name}
                 </h2>
                 <BadgeCheck className="text-blue-500" size={18} />
-                <p>{gardener.status}</p>
+              
               </div>
 
               <p className="text-gray-600 flex items-center gap-1 mb-1">
@@ -62,7 +62,7 @@ const ExploreGardeners = () => {
               </p>
 
               <p className="text-gray-600 flex items-center gap-1 mb-1">
-                <Lightbulb size={16} /> Total Tips: {gardener.totalTips}
+                <Lightbulb size={16} /> Total Tips: {gardener.total_shared_tips}
               </p>
 
               <div className="mt-4">

@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
 import { GiTreeBranch } from "react-icons/gi";
-
+import { BiSolidLike } from "react-icons/bi";
 const TipCard = ({ detailsData }) => {
   const { id } = useParams();
   
@@ -48,6 +48,11 @@ const TipCard = ({ detailsData }) => {
                 <p className="font-semibold text-lg">Shared by:</p>
                 <p>Name : {data.name}</p>
                 <p>Email : {data.email}</p>
+              </div>
+              <div className="flex items-center cursor-pointer ">
+                <BiSolidLike size={30} color="blue" />
+                <button className="text-xl pl-2 font-bold">Like</button>
+                
               </div>
              
             </div>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { GiTreeBranch } from "react-icons/gi";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, userLogOut } = useContext(AuthContext);
+  const navigate=useNavigate()
 
   const handleLogout = () => {
     userLogOut()
@@ -17,6 +18,7 @@ const Navbar = () => {
           showConfirmButton: false,
           timer: 1000,
         });
+        navigate('/login')
       })
       .catch((error) => {
         console.error(error);
@@ -109,7 +111,7 @@ const Navbar = () => {
             ) : (
               <li>
                 <NavLink
-                  to="/login"
+                  to="/sharegardentip"
                   className={({ isActive }) =>
                     isActive && user
                       ? "text-blue-600 underline font-bold"

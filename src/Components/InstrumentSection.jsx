@@ -12,21 +12,40 @@ const InstrumentSection = () => {
   }, []);
 
   return (
-    <div className="mt-20 bg-green-50 p-6 ">
-      <h2 className="text-3xl font-bold text-center mb-8 text-green-700">Gardening Tools</h2>
-      <p className="text-gray-600 font-bold text-md text-center lg:w-3/4 ml-4 lg:ml-40 ">"Gardening tools are essential for every gardener. From digging and planting to pruning and watering, the right tools make gardening easier and more enjoyable. Durable, ergonomic, and well-maintained tools help create healthy, thriving gardens."</p>
-      <div className="w-11/12 mx-auto grid grid-cols-1 mt-15 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="mt-20 bg-gradient-to-br from-green-50 via-green-100 to-green-50 py-16">
+      <h2 className="text-5xl font-extrabold text-center mb-6 text-green-800">
+         Gardening Tools
+      </h2>
+      <p className="text-gray-600 text-lg text-center mb-14 max-w-2xl mx-auto">
+        "Tools that turn soil and space into thriving green sanctuaries "
+      </p>
+
+      <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {tools.map((tool, index) => (
-          <div key={index} className="card bg-base-300 shadow-lg">
-            <figure className="px-8 pt-8">
-              <img src={tool.image} alt={tool.tool_name} className="rounded-xl w-96 h-96 object-cover" />
-            </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title text-xl">{tool.tool_name}</h2>
-              <p className="text-gray-600">{tool.description}</p>
-              <p className="text-sm text-green-700 font-medium mt-2">Category: {tool.category}</p>
-              <div className="card-actions mt-4">
-              </div>
+          <div
+            key={index}
+            className="relative bg-white/30 backdrop-blur-xl border border-white/20 rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 overflow-hidden group"
+          >
+            <div className="overflow-hidden rounded-2xl">
+              <img
+                src={tool.image}
+                alt={tool.tool_name}
+                className="w-full h-64 object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+
+            <div className="p-6 text-center">
+              <h3 className="text-2xl font-bold text-green-900 mb-2">
+                {tool.tool_name}
+              </h3>
+              <p className="text-gray-700 text-base mb-3">{tool.description}</p>
+
+              <span className="inline-block bg-gradient-to-r from-green-500 to-green-700 text-white text-xs font-bold px-3 py-1 rounded-full mt-3">
+
+                Category : {tool.category}
+              </span>
+
+              <div className="mt-6"></div>
             </div>
           </div>
         ))}
@@ -36,4 +55,3 @@ const InstrumentSection = () => {
 };
 
 export default InstrumentSection;
-
