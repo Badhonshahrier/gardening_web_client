@@ -79,11 +79,4 @@ A community-based Gardening web application where users can explore plant resour
 3. Run React app  
 `npm run dev`
 
----
-
----
-
-## 📞 Contact  
-
-For queries, reach out at [your-email@gmail.com]
 
