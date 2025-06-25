@@ -1,12 +1,89 @@
-# React + Vite
+# 🌿 Gardening Community Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A community-based Gardening web application where users can explore plant resources, share gardening tips, create personal plant profiles, and connect with other garden enthusiasts.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Link  
+[👉 Visit Live Site](https://gardening-authentication-a8520.web.app/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📸 Screenshot
+
+![Gardening App Screenshot](https://i.ibb.co/hRBDhM2F/Screenshot-12.png)
+
+---
+
+## 🛠️ Technologies Used
+
+- React
+- Node.js
+- Express.js
+- MongoDB
+- Tailwind CSS
+- React Router
+- Axios
+
+---
+
+## 🚀 Features
+
+- User Authentication (Register/Login)
+- Share gardening tips, photos, and plant care guides
+- Like, comment & bookmark favorite posts
+- Browse plant resources by category (indoor, outdoor, medicinal etc.)
+- Create and manage personal plant collections
+- Responsive UI for desktop & mobile
+- Secure API integration
+- Dashboard for users to manage their own resources
+
+---
+
+## 📦 Dependencies
+
+- react
+- react-router
+- axios
+- express
+- mongoose
+- cors
+- dotenv
+- bcryptjs
+- jsonwebtoken
+- nodemon (for development)
+- tailwindcss
+- daisyui (optional for UI components)
+
+---
+
+## 🖥️ How to Run Locally
+
+### 📌 Backend Setup
+1. Clone the repository  
+`https://github.com/Badhonshahrier/gardening_web_client`
+2. Navigate to server directory  
+`cd server`
+3. Install dependencies  
+`npm install`
+4. Create `.env` file and add your MongoDB URI  
+`MONGODB_URI=your-mongo-db-url`
+5. Run server  
+`npm run dev`
+
+### 📌 Frontend Setup
+1. Navigate to client directory  
+`cd client`
+2. Install dependencies  
+`npm install`
+3. Run React app  
+`npm run dev`
+
+---
+
+---
+
+## 📞 Contact  
+
+For queries, reach out at [your-email@gmail.com]
+
