@@ -26,8 +26,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-lime-100 via-green-100 to-green-200">
-      <div className="navbar w-11/12 mx-auto">
+    <div className="bg-gradient-to-r from-green-200 via-green-100 to-lime-100 sticky top-0 z-50">
+      <div className="navbar w-11/12 mx-auto sticky">
         <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -137,6 +137,8 @@ const Navbar = () => {
 
         <div className="navbar-end">
           {user ? (
+            <>
+            <li className="mr-6"><NavLink to='/dashboard'>Dashboard</NavLink></li>
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
@@ -152,41 +154,7 @@ const Navbar = () => {
                   />
                 </div>
               </div>
-
-              {/* <label className="flex cursor-pointer gap-2 items-center ml-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="12" cy="12" r="5" />
-                  <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
-                </svg>
-                <input
-                  type="checkbox"
-                  className="toggle theme-controller"
-                  aria-label="Toggle dark mode"
-                />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-              </label> */}
+               
 
               <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-36">
                 <li>
@@ -197,8 +165,10 @@ const Navbar = () => {
                     Logout
                   </button>
                 </li>
+               
               </ul>
-            </div>
+            </div></>
+            
           ) : (
             <Link to="/login">
               <button className="btn p-0 px-7 rounded-2xl text-xl font-bold bg-amber-400 hover:bg-green-500">
@@ -213,3 +183,8 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
+

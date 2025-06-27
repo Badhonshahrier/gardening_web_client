@@ -11,6 +11,9 @@ import ErrorPage from "../Components/ErrorPage";
 import MyTips from "../Pages/MyTips";
 import UpdateTips from "../Pages/UpdateTips";
 import PrivateRoutes from "../Components/PrivateRoutes/PrivateRoutes";
+import Details from "../Components/Details";
+import Dashboard from "../Components/Dashboard";
+import Overview from "../Components/Overview";
 
 export const router = createBrowserRouter([
   {
@@ -52,7 +55,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/sharegardentip",
-       element: (
+        element: (
           <PrivateRoutes>
             <ShareGardenTip></ShareGardenTip>
           </PrivateRoutes>
@@ -118,6 +121,31 @@ export const router = createBrowserRouter([
             <UpdateTips></UpdateTips>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/exploredetails/:id",
+        Component: Details,
+        loader: ({ params }) =>
+          fetch(`https://gardening-assignment-server.vercel.app/gardeners/${params.id}`),
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoutes>
+            <Dashboard />
+          </PrivateRoutes>
+        ),
+        children: [
+          {
+            index: true,
+            element: <Overview />,
+          },
+          {
+            path: "overview",
+            element: <Overview />,
+          },
+
+        ],
       },
     ],
   },

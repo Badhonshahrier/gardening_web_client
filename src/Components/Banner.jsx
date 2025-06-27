@@ -30,11 +30,7 @@ const  Banner = ({ singleData }) => {
                   {item.title}
                 </h2>
                 <p className="text-sm font-medium mb-4 drop-shadow-sm">{item.date}</p>
-                <button
-                  className="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition duration-300 w-fit"
-                >
-                  Learn More
-                </button>
+              
               </div>
             </div>
           </SwiperSlide>
@@ -45,6 +41,10 @@ const  Banner = ({ singleData }) => {
 };
 
 export default Banner;
+
+
+
+
 
 
 
