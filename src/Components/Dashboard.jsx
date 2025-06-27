@@ -20,7 +20,7 @@ const Dashboard = () => {
           </li>
           <li>
             <NavLink
-              to="all-items"
+              to="/explore-gardeners"
               className={({ isActive }) =>
                 isActive ? "font-bold text-green-700" : "text-green-900"
               }
